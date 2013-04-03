@@ -7,9 +7,9 @@ development:
   adapter: mysql2
   encoding: utf8
   database: bt_dev
-  username: dev
-  password: $spenC3r
-  host: //127.0.0.1
+  username: bobs
+  password: $aGe3299
+  host: localhost
   port: 3306
 
 # Warning: The database defined as "test" will be erased and
@@ -19,16 +19,16 @@ test:
   adapter: mysql2
   encoding: utf8
   database: bt_test
-  username: dev
-  password: $spenC3r
-  host: //127.0.0.1
+  username: bobs
+  password: $aGe3299
+  host: localhost
   port: 3306
 
 production:
   adapter: mysql2
   encoding: utf8
   database: bt
-  username: dev
-  password: $spenC3r
-  host: //127.0.0.1
+  username: bobs
+  password: $aGe3299
+  host: localhost
   port: 3306
