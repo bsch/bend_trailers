@@ -38,3 +38,10 @@ default_environment["RAILS_ENV"] = 'production'
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
+
+task :symlink_database_yml do
+  run "rm #{release_path}/config/database.yml"
+  run "ln -sfn #{shared_path}/config/database.yml 
+       #{release_path}/config/database.yml"
+end
+after "bundle:install", "symlink_database_yml"
