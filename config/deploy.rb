@@ -1,7 +1,8 @@
 require "bundler/capistrano"
 load "deploy/assets"
 
-set :application, "bend_trailers"
+set :application, "store"
+set :user, "bendtrailers"
 set :repository,  "git@github.com:bsch/bend_trailers.git"
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
@@ -13,9 +14,9 @@ role :app, server                          # This may be the same as your `Web` 
 role :db,  server, :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
-set :user, "bendtrailers"
 
-set :deploy_to, "/home/bendtrailers/[application_name]"
+
+set :deploy_to, "/home/bendtrailers/#{application}"
 set :use_sudo, false
 
 default_run_options[:shell] = '/bin/bash --login'
