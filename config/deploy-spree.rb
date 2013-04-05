@@ -1,17 +1,19 @@
 require "bundler/capistrano"
 load 'deploy/assets'
 
-set :application, "bendtrailers"
-set :user, 'bendtrailers'
+set :application, "store"
+set :user, 'bt'
 set :group, 'www-data'
 set :rails_env, 'production'
 
-role :web, '166.78.243.107'
-role :app, '166.78.243.107'
-role :db,  '166.78.243.107', :primary => true
+server = "bt1.bendtrailers.com"
+role :web, server       # Your HTTP server, Apache/etc
+role :app, server       # This may be the same as your `Web` server
+role :db,  server, :primary => true # This is where Rails migrations will run
+#role :db,  "your slave db-server here"
 
 set :scm, :git
-set :repository,  "https://github.com/bsch/trailers.git"
+set :repository,  "git@github.com:bsch/bend_trailers.git"
 set :branch,      "master"
 set :deploy_to,   "/data/#{application}"
 set :deploy_via,  :remote_cache

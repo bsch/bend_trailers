@@ -1,13 +1,17 @@
-
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
 development:
   adapter: mysql2
   encoding: utf8
   database: bt_dev
-  username: bt
-  password: spenC3r
+  username: bobs
+  password: $aGe3299
   host: localhost
   port: 3306
-  
+  socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -16,18 +20,18 @@ test:
   adapter: mysql2
   encoding: utf8
   database: bt_test
-  username: bt
-  password: spenC3r
+  username: bobs
+  password: $aGe3299
   host: localhost
   port: 3306
-  
+  socket: /tmp/mysql.sock
 
 production:
   adapter: mysql2
   encoding: utf8
   database: bt
-  username: bt
-  password: spenC3r
+  username: bobs
+  password: $aGe3299
   host: localhost
   port: 3306
-  
+  socket: /tmp/mysql.sock
