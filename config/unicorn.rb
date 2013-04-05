@@ -25,7 +25,7 @@ if env == "production"
   working_directory "/home/bt/store/current"
  
   # feel free to point this anywhere accessible on the filesystem
-  user 'spree'
+  user 'bt'
   shared_path = "/home/bt/store/shared"
  
   stderr_path "#{shared_path}/log/unicorn.stderr.log"
