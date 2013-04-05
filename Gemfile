@@ -36,3 +36,9 @@ gem 'jquery-rails', '2.2.1'
 
 # To use debugger
 # gem 'debugger'
+
+group :production do
+	gem 'unicorn'
+end
+
+
