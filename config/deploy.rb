@@ -17,7 +17,7 @@ role :db,  server, :primary => true # This is where Rails migrations will run
 
 
 set :deploy_to, "/home/bt/#{application}"
-set :use_sudo, false
+set :use_sudo, true
 
 default_run_options[:shell] = '/bin/bash --login'
 default_environment["RAILS_ENV"] = 'production'
@@ -32,7 +32,7 @@ after "bundle:install", "symlink_database_yml"
 namespace :unicorn do
   desc "Zero-downtime restart of Unicorn"
   task :restart, except: { no_release: true } do
-    run "kill -s USR2 `cat /tmp/pids/unicorn.store.pid`"
+    run "kill -s USR2 `cat /tmp/unicorn.store.pid`"
   end
  
   desc "Start unicorn"
@@ -42,7 +42,7 @@ namespace :unicorn do
  
   desc "Stop unicorn"
   task :stop, except: { no_release: true } do
-    run "kill -s QUIT `cat /tmp/pids/unicorn.store.pid`"
+    run "kill -s QUIT `cat /tmp/unicorn.store.pid`"
   end
 end
  
