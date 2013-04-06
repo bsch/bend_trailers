@@ -18,6 +18,7 @@ set :user, "bt"
 
 set :deploy_to, "/home/bt/#{application}"
 set :use_sudo, false
+set :unicorn_pid, "/tmp/unicorn.pid"
 
 default_run_options[:shell] = '/bin/bash --login'
 default_environment["RAILS_ENV"] = 'production'
@@ -34,7 +35,7 @@ after "bundle:install", "symlink_database_yml"
 namespace :unicorn do
   desc "Zero-downtime restart of Unicorn"
   task :restart, except: { no_release: true } do
-    run "kill -s USR2  `cat /tmp/unicorn.store.pid`"
+    run "kill -s USR2  `#{unicorn_pid}`"
   end
  
   desc "Start unicorn"
@@ -44,7 +45,7 @@ namespace :unicorn do
  
   desc "Stop unicorn"
   task :stop, except: { no_release: true } do
-    run "kill -s QUIT {}`cat /tmp/unicorn.store.pid`"
+    run "kill -s QUIT {}`cat #{unicorn_pid}`"
   end
 end
  
