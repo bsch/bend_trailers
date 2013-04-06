@@ -17,6 +17,12 @@ preload_app true
 timeout 30
  
 pid "/tmp/pids/unicorn.store.pid"
+
+if ENV["RAILS_ENV"] == "development"
+  worker_processes 1
+else
+  worker_processes 3
+end
  
 # Production specific settings
 if env == "production"
