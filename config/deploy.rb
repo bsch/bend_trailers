@@ -18,7 +18,7 @@ set :user, "bt"
 
 set :deploy_to, "/home/bt/#{application}"
 set :use_sudo, false
-set :unicorn_pid, "/tmp/unicorn.pid"
+set :unicorn_pid, "/tmp/unicorn.bt.store.pid"
 
 default_run_options[:shell] = '/bin/bash --login'
 default_environment["RAILS_ENV"] = 'production'
