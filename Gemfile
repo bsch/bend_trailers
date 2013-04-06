@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-
 gem 'mysql2', '0.3.11'
-
+gem 'jquery-rails', '2.2.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -17,15 +16,17 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails', '2.2.1'
 
 
-# Use unicorn as the app server
-gem 'unicorn'
 
 # Deploy with Capistrano
 group :development do 
 	gem 'capistrano', '2.14.2'
+end
+
+group :production do 
+	gem 'capistrano', '2.14.2'
+	gem 'unicorn'
 end
 
 # To use ActiveModel has_secure_password
