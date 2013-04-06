@@ -48,7 +48,7 @@ namespace :unicorn do
   end
 end
  
-after "deploy:restart" #, "unicorn:restart" ### commented out to test.
+after "deploy:restart", "unicorn:restart" ### commented out to test.
 
 
 
