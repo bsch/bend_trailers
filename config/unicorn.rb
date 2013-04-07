@@ -1,6 +1,6 @@
 # config/unicorn.rb
 # Set environment to development unless something else is specified
-env = ENV["RAILS_ENV"] || "production"
+#env = ENV["RAILS_ENV"] || "production"
  
 # See http://unicorn.bogomips.org/Unicorn/Configurator.html for complete
 # documentation.
