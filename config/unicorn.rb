@@ -1,6 +1,6 @@
 # config/unicorn.rb
 # Set environment to development unless something else is specified
-env = ENV["RAILS_ENV"] || "development"
+env = ENV["RAILS_ENV"] || "production"
  
 # See http://unicorn.bogomips.org/Unicorn/Configurator.html for complete
 # documentation.
@@ -8,7 +8,7 @@ worker_processes 4
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
-listen "home/bt/tmp/unicorn.socket", backlog: 64
+listen "/tmp/unicorn.socket", backlog: 64
  
 # Preload our app for more speed
 preload_app true
@@ -16,7 +16,7 @@ preload_app true
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30
  
-pid "/home/bt/tmp/pids/unicorn.store.pid"
+pid "/tmp/pids/unicorn.store.pid"
 
 # Production specific settings
 if env == "production"
@@ -42,7 +42,7 @@ before_fork do |server, worker|
  
   # Before forking, kill the master process that belongs to the .oldbin PID.
   # This enables 0 downtime deploys.
-  old_pid = "/home/bt/tmp/pids/unicorn.store.pid.oldbin"
+  old_pid = "/tmp/pids/unicorn.store.pid.oldbin"
   if File.exists?(old_pid) && server.pid != old_pid
     begin
       Process.kill("QUIT", File.read(old_pid).to_i)
