@@ -35,7 +35,7 @@ after "bundle:install", "symlink_database_yml"
 namespace :unicorn do
   desc "Zero-downtime restart of Unicorn"
   task :restart, except: { no_release: true } do
-    run "kill -s USR2 `cat #{RAILS_ROOT}/#{unicorn_pid}`"
+    run "kill -s USR2 `cat #{unicorn_pid}`"
   end
  
   desc "Start unicorn"
@@ -45,7 +45,7 @@ namespace :unicorn do
  
   desc "Stop unicorn"
   task :stop, except: { no_release: true } do
-    run "kill -s QUIT `cat #{RAILS_ROOT}/#{unicorn_pid}`"
+    run "kill -s QUIT `cat #{unicorn_pid}`"
   end
 end
  
