@@ -16,14 +16,8 @@ preload_app true
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30
  
-pid "/tmp/unicorn.store.pid"
+pid "/tmp/pids/unicorn.store.pid"
 
-if ENV["RAILS_ENV"] == "development"
-  worker_processes 1
-else
-  worker_processes 3
-end
- 
 # Production specific settings
 if env == "production"
   # Help ensure your application will always spawn in the symlinked
@@ -32,6 +26,7 @@ if env == "production"
  
   # feel free to point this anywhere accessible on the filesystem
   user 'bt'
+
   shared_path = "/home/bt/store/shared"
  
   stderr_path "#{shared_path}/log/unicorn.stderr.log"
