@@ -45,7 +45,7 @@ namespace :unicorn do
  
   desc "Stop unicorn"
   task :stop, except: { no_release: true } do
-    run "kill -s QUIT `cat #{unicorn_pid}`"
+    run "kill -s QUIT `cat /tmp/pids/unicorn.[application's name].pid`"
   end
 end
  
