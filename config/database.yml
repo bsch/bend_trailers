@@ -1,10 +1,9 @@
-
 development:
   adapter: mysql2
   encoding: utf8
   database: bt_dev
   username: bt
-  password: spenC3r
+  password: 
   host: localhost
   port: 3306
   
@@ -17,7 +16,7 @@ test:
   encoding: utf8
   database: bt_test
   username: bt
-  password: spenC3r
+  password: 
   host: localhost
   port: 3306
   
@@ -27,7 +26,7 @@ production:
   encoding: utf8
   database: bt
   username: bt
-  password: spenC3r
+  password: 
   host: localhost
   port: 3306
   
